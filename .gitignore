@@ -68,4 +68,10 @@ package-lock.json
 test/
 
 # webpack
-dist/
+dis
+
+# .tscache
+.tscache/
+
+# etc
+.baseDir.js
