@@ -1,7 +1,9 @@
 <template>
     <div class="insuk">
         Insuk
-        <span>{{ who }}</span>
+        <span>{{ who }}</span><br/>
+        <p></p>
+        <button v-on:click="moveUser">할일 적기</button>
     </div>
 </template>
 
@@ -14,8 +16,13 @@
         },
         mounted () {
             setTimeout(() => {
-                console.log('We can use ES6 too!')
+                console.log('We!!!!!! can use ES6 too!')
             }, 1000)
+        },
+        methods : {
+            moveUser : function(event){
+                location.href="/user";
+            }
         }
     }
 </script>

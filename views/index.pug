@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1   Hello World
-  p You did it, congratulations!
-  insuk-world
+  div(style=`background-image:url("/images/background.jpg");`)
+    insuk-world
+    p
+
+    - for (var x = 1; x < 25 ; x++)
+      p=x
+

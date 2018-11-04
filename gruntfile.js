@@ -1,3 +1,5 @@
+const webpackConfig = require('./webpack.config');
+
 module.exports = function(grunt) {
   "use strict";
 
@@ -29,16 +31,26 @@ module.exports = function(grunt) {
         files: ["js/src/**/*.ts", "src/**/*.ts"],
         tasks: ["ts", "tslint"]
       }
+    },
+    webpack: {
+       options: {
+          stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+       },
+       prod: webpackConfig,
+       dev: Object.assign({ watch: true }, webpackConfig)
     }
+
   });
 
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-ts");
   grunt.loadNpmTasks("grunt-tslint");
+  grunt.loadNpmTasks('grunt-webpack');
 
   grunt.registerTask("default", [
     "ts",
     "tslint"
   ]);
+
 
 };
